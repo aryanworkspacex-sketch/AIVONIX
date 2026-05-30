@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIVONIX | Smart Digital Systems for Business Growth</title>
+    <!-- Tailwind CSS for high-fidelity professional styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0A192F', // Deep, trustworthy corporate dark blue
+                            navy: '#172A45', // Medium classic navy
+                            accent: '#3B82F6', // Modern professional cobalt blue
+                            light: '#F8FAFC', // Crisp white/slate background
+                            success: '#10B981' // Positive growth accent green
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Smooth animations and styling overrides -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Premium Typographic Logo Signature -->
+            <a href="#" onclick="handleNavClick(event, '#')" class="flex items-center gap-2 group cursor-pointer" id="logo-container">
+                <span class="text-2xl font-extrabold tracking-tight text-brand-dark transition-colors duration-200 group-hover:text-brand-navy">
+                    AIVONIX<span class="text-brand-accent">.</span>
+                </span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#what-we-do" onclick="handleNavClick(event, '#what-we-do')" class="hover:text-brand-dark transition-colors cursor-pointer">What We Do</a>
+                <a href="#why-needed" onclick="handleNavClick(event, '#why-needed')" class="hover:text-brand-dark transition-colors cursor-pointer">Why Your Business Needs This</a>
+                <a href="#solutions" onclick="handleNavClick(event, '#solutions')" class="hover:text-brand-dark transition-colors cursor-pointer">What You Get</a>
+                <a href="#benefits" onclick="handleNavClick(event, '#benefits')" class="hover:text-brand-dark transition-colors cursor-pointer">Our Impact</a>
+                <a href="#how-we-work" onclick="handleNavClick(event, '#how-we-work')" class="hover:text-brand-dark transition-colors cursor-pointer">Process</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" onclick="handleNavClick(event, '#contact')" class="hidden sm:inline-flex bg-brand-dark hover:bg-brand-navy text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-sm border border-transparent cursor-pointer">
+                    Get Free Consultation
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" type="button" class="md:hidden p-2 text-slate-600 hover:text-brand-dark focus:outline-none cursor-pointer" aria-label="Toggle Menu">
+                    <svg id="menu-icon-hamburger" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 px-6 py-4 space-y-3 shadow-inner">
+            <a href="#what-we-do" onclick="handleNavClick(event, '#what-we-do')" class="block text-sm font-semibold text-slate-600 hover:text-brand-dark py-2 cursor-pointer">What We Do</a>
+            <a href="#why-needed" onclick="handleNavClick(event, '#why-needed')" class="block text-sm font-semibold text-slate-600 hover:text-brand-dark py-2 cursor-pointer">Why Your Business Needs This</a>
+            <a href="#solutions" onclick="handleNavClick(event, '#solutions')" class="block text-sm font-semibold text-slate-600 hover:text-brand-dark py-2 cursor-pointer">What You Get</a>
+            <a href="#benefits" onclick="handleNavClick(event, '#benefits')" class="block text-sm font-semibold text-slate-600 hover:text-brand-dark py-2 cursor-pointer">Our Impact</a>
+            <a href="#how-we-work" onclick="handleNavClick(event, '#how-we-work')" class="block text-sm font-semibold text-slate-600 hover:text-brand-dark py-2 cursor-pointer">Process</a>
+            <a href="#contact" onclick="handleNavClick(event, '#contact')" class="block bg-brand-dark text-white text-center text-sm font-semibold py-3 rounded-lg mt-4 cursor-pointer">
+                Get Free Consultation
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Container containing dynamic states -->
+    <div id="main-content-wrapper">
+
+        <!-- 1. Hero Section -->
+        <section class="relative overflow-hidden py-16 lg:py-28 bg-white border-b border-slate-100">
+            <!-- Subtle modern geometric grid background pattern -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Text Column -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <div class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-full text-xs font-semibold text-brand-navy tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span> Professional Digital Systems
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-dark leading-[1.15]">
+                        Grow Your Business with <br class="hidden sm:inline" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-dark via-brand-navy to-brand-accent">Smart Digital Systems</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        We help businesses get more customers, respond faster, stay organized, and build a professional online presence that creates trust.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#contact" onclick="handleNavClick(event, '#contact')" class="bg-brand-dark hover:bg-brand-navy text-white font-semibold text-center px-8 py-4 rounded-xl transition-all duration-200 shadow-lg shadow-slate-950/10 cursor-pointer">
+                            Get Free Consultation
+                        </a>
+                        <a href="#what-we-do" onclick="handleNavClick(event, '#what-we-do')" class="text-slate-600 hover:text-brand-dark font-semibold text-center px-6 py-4 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                            See how we help <span class="text-lg">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Element Column -->
+                <div class="lg:col-span-5 relative">
+                    <!-- Elegant Corporate Dashboard Mockup -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 shadow-2xl space-y-4 max-w-md mx-auto relative">
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                            </div>
+                            <span class="text-xs font-semibold tracking-wider text-slate-400 uppercase">AIVONIX Workflow Management</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between">
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">New Inbound Customer Enquiries</p>
+                                    <p class="text-xl font-bold text-brand-dark mt-0.5">+48% Increase</p>
+                                </div>
+                                <span class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold">▲</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between">
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Average System Response Speed</p>
+                                    <p class="text-xl font-bold text-brand-dark mt-0.5">Under 2 Minutes</p>
+                                </div>
+                                <span class="w-10 h-10 rounded-lg bg-blue-50 text-brand-accent flex items-center justify-center text-sm font-bold">✓</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between">
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Active Client Follow-ups Organised</p>
+                                    <p class="text-xl font-bold text-brand-dark mt-0.5">100% Tracked</p>
+                                </div>
+                                <span class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-bold">★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. What We Do Section -->
+        <section id="what-we-do" class="py-20 lg:py-28 bg-brand-light border-b border-slate-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Agency Foundations</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">What We Do</h2>
+                    <p class="text-base text-slate-600">We establish modern, resilient operational setups designed to secure and retain customers.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Capability 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 space-y-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-accent font-bold text-lg mb-2">01</div>
+                        <h3 class="text-lg font-bold text-brand-dark">Get More Enquiries</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            We position and connect channels to attract higher-quality business leads directly to your doorstep.
+                        </p>
+                    </div>
+                    <!-- Capability 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 space-y-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-accent font-bold text-lg mb-2">02</div>
+                        <h3 class="text-lg font-bold text-brand-dark">Improve Customer Communication</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Upgrade your client interaction. Give every visitor a clear, high-speed, and seamless way to speak to your team.
+                        </p>
+                    </div>
+                    <!-- Capability 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 space-y-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-accent font-bold text-lg mb-2">03</div>
+                        <h3 class="text-lg font-bold text-brand-dark">Organize Leads & Follow-ups</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Maintain a perfectly organized tracking pipeline so you never lose contact with hot prospects or miss sales opportunities.
+                        </p>
+                    </div>
+                    <!-- Capability 4 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 space-y-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-accent font-bold text-lg mb-2">04</div>
+                        <h3 class="text-lg font-bold text-brand-dark">Build Stronger Online Presence</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            We build premium, corporate digital fronts that visually convey authority and establish you as a top industry leader.
+                        </p>
+                    </div>
+                    <!-- Capability 5 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 space-y-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-accent font-bold text-lg mb-2">05</div>
+                        <h3 class="text-lg font-bold text-brand-dark">Increase Customer Trust</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            By delivering clear, structured, and rapid responses, you prove to clients that you are highly organized and dependable.
+                        </p>
+                    </div>
+                    <!-- Capability 6 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 space-y-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-accent font-bold text-lg mb-2">06</div>
+                        <h3 class="text-lg font-bold text-brand-dark">Improve Business Workflow</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Eliminate manual clutter. Create orderly internal paths that save valuable hours and keep your daily operations smooth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Why Businesses Need This Section -->
+        <section id="why-needed" class="py-20 lg:py-28 bg-white border-b border-slate-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Column 1 -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-xs font-bold uppercase tracking-widest text-red-500">The Problem</span>
+                        <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
+                            Why Businesses Need Better Setup
+                        </h2>
+                        <p class="text-base text-slate-600 leading-relaxed">
+                            Unorganized processes hold businesses back more than anything else. Without clean, reliable systems, growing teams face painful, everyday operational leaks.
+                        </p>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl">
+                            <p class="text-xs font-semibold text-red-800 uppercase tracking-wide">Industry Reality</p>
+                            <p class="text-sm text-red-700 mt-1">
+                                Over 60% of consumers choose the business that responds to their enquiry first. Speed and structure win.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Column 2 (Pain Points) -->
+                    <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                        <!-- Pain Point 1 -->
+                        <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 space-y-2">
+                            <h4 class="font-bold text-brand-dark text-base flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Missed Customer Enquiries
+                            </h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Leads arrive but slip through unmonitored text inbox channels or buried email folders.
+                            </p>
+                        </div>
+                        <!-- Pain Point 2 -->
+                        <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 space-y-2">
+                            <h4 class="font-bold text-brand-dark text-base flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Slow Response Speeds
+                            </h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Delays in customer follow-up give competitors the chance to slide in and lock down the contract.
+                            </p>
+                        </div>
+                        <!-- Pain Point 3 -->
+                        <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 space-y-2">
+                            <h4 class="font-bold text-brand-dark text-base flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Unorganized Workflows
+                            </h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Relying on notebook entries, spreadsheets, or memories results in lost operational efficiency.
+                            </p>
+                        </div>
+                        <!-- Pain Point 4 -->
+                        <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 space-y-2">
+                            <h4 class="font-bold text-brand-dark text-base flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Weak Online Presence
+                            </h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                An outdated homepage makes prospects doubt your reliability, even if your real-world services are stellar.
+                            </p>
+                        </div>
+                        <!-- Pain Point 5 (Span 2) -->
+                        <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 space-y-2 sm:col-span-2">
+                            <h4 class="font-bold text-brand-dark text-base flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Losing Customers to Competitors
+                            </h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                When others look sharper, answer faster, and handle booking professionally, prospects abandon your brand pipeline entirely.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. What Clients Get Section -->
+        <section id="solutions" class="py-20 lg:py-28 bg-brand-light border-b border-slate-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">The Deliverables</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">What Our Clients Get</h2>
+                    <p class="text-base text-slate-600">A customized suite of setups designed to transition your brand from survival to strategic scaling.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Deliverable 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-accent flex items-center justify-center">
+                            <!-- SVG lead management -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-brand-dark">Lead Management</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            A clear, visual pipeline system to compile every potential customer, so your team knows exactly who to contact.
+                        </p>
+                    </div>
+
+                    <!-- Deliverable 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-accent flex items-center justify-center">
+                            <!-- SVG response -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-brand-dark">Faster Responses</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Smart setups that instantly relay customer messages directly to your staff, securing ultra-fast, structured responses.
+                        </p>
+                    </div>
+
+                    <!-- Deliverable 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-accent flex items-center justify-center">
+                            <!-- SVG organized -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-brand-dark">Organized Workflow</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Daily schedules and operations map perfectly with your tasks, minimizing confusion and repetitive friction.
+                        </p>
+                    </div>
+
+                    <!-- Deliverable 4 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-accent flex items-center justify-center">
+                            <!-- SVG web presence -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-brand-dark">Professional Online Presence</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            A highly optimized corporate platform that beautifully displays your physical team, capability values, and credibility signals.
+                        </p>
+                    </div>
+
+                    <!-- Deliverable 5 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-accent flex items-center justify-center">
+                            <!-- SVG client exp -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-brand-dark">Better Customer Experience</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            From instant bookings to organized confirmation messages, your customers receive a stellar corporate experience.
+                        </p>
+                    </div>
+
+                    <!-- Deliverable 6 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-accent flex items-center justify-center">
+                            <!-- SVG support -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-brand-dark">Ongoing Support</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            We don’t leave you stranded. We audit, update, and support your digital system frameworks as your organization climbs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Benefits Section -->
+        <section id="benefits" class="py-20 lg:py-28 bg-brand-dark text-white relative overflow-hidden scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-20">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Measurable Outcomes</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">Your Business, Fully Upgraded</h2>
+                    <p class="text-base text-slate-400">By shifting from fragmented tools to centralized business architecture, our clients witness direct visual changes.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <!-- Metric 1 -->
+                    <div class="text-center space-y-3 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                        <span class="text-3xl font-extrabold text-brand-accent">01</span>
+                        <h4 class="font-bold text-white text-base">More Customer Trust</h4>
+                        <p class="text-xs text-slate-400">A high-end profile commands premium prices and conversions.</p>
+                    </div>
+                    <!-- Metric 2 -->
+                    <div class="text-center space-y-3 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                        <span class="text-3xl font-extrabold text-brand-accent">02</span>
+                        <h4 class="font-bold text-white text-base">Better Organization</h4>
+                        <p class="text-xs text-slate-400">Internal metrics are clearly structured and traceable at all times.</p>
+                    </div>
+                    <!-- Metric 3 -->
+                    <div class="text-center space-y-3 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                        <span class="text-3xl font-extrabold text-brand-accent">03</span>
+                        <h4 class="font-bold text-white text-base">Faster Communication</h4>
+                        <p class="text-xs text-slate-400">Instant system confirmations lock in clients ahead of rivals.</p>
+                    </div>
+                    <!-- Metric 4 -->
+                    <div class="text-center space-y-3 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                        <span class="text-3xl font-extrabold text-brand-accent">04</span>
+                        <h4 class="font-bold text-white text-base">More Opportunities</h4>
+                        <p class="text-xs text-slate-400">Capture missed traffic that previously went ignored.</p>
+                    </div>
+                    <!-- Metric 5 -->
+                    <div class="text-center space-y-3 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                        <span class="text-3xl font-extrabold text-brand-accent">05</span>
+                        <h4 class="font-bold text-white text-base">Stronger Online Image</h4>
+                        <p class="text-xs text-slate-400">Build an elegant corporate digital image that endures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. How We Work Section -->
+        <section id="how-we-work" class="py-20 lg:py-28 bg-white border-b border-slate-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-20">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Simple Execution</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">How We Work</h2>
+                    <p class="text-base text-slate-600">A clear, worry-free process that transforms your workspace with minimal effort on your part.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/50 relative space-y-4">
+                        <div class="absolute -top-6 left-6 w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-extrabold shadow-md border-4 border-white text-base">1</div>
+                        <h3 class="text-lg font-bold text-brand-dark pt-4">Understand Your Business</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            We map out your current team setup, response times, and sales pipeline to pinpoint precisely where leads or time are slipping away.
+                        </p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/50 relative space-y-4">
+                        <div class="absolute -top-6 left-6 w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-extrabold shadow-md border-4 border-white text-base">2</div>
+                        <h3 class="text-lg font-bold text-brand-dark pt-4">Create the Right Setup</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Our team blueprints a custom digital pipeline tailored specifically to how your team manages, responses, and records client enquiries.
+                        </p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/50 relative space-y-4">
+                        <div class="absolute -top-6 left-6 w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-extrabold shadow-md border-4 border-white text-base">3</div>
+                        <h3 class="text-lg font-bold text-brand-dark pt-4">Implement Everything</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            We build, deploy, and verify your new online presence and centralized communication systems, handling all technical configurations smoothly.
+                        </p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/50 relative space-y-4">
+                        <div class="absolute -top-6 left-6 w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center font-extrabold shadow-md border-4 border-white text-base">4</div>
+                        <h3 class="text-lg font-bold text-brand-dark pt-4">Help You Grow</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Once your structures are working perfectly, we guide your team on handling incoming traffic, ensuring long-term operational success.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Testimonial Section -->
+        <section id="testimonials" class="py-20 lg:py-28 bg-brand-light border-b border-slate-100 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Partner Trust</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">Client Success Stories</h2>
+                    <p class="text-base text-slate-600">Hear from local business owners who upgraded their operations using our custom system models.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/60 shadow-sm space-y-6 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Star review graphics -->
+                            <div class="flex gap-1 text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                            <p class="text-slate-600 italic text-sm leading-relaxed">
+                                "Before working with AIVONIX, we was losing leads regularly because we were too slow to reply. They set up an organized booking and pipeline dashboard that instantly fixed this. Our customer satisfaction has never been higher, and we save hours of stressful manual coordination weekly."
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-100 pt-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs font-extrabold">JW</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-brand-dark">Jonathan West</h5>
+                                <p class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Director, Apex Building Contractors</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/60 shadow-sm space-y-6 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Star review graphics -->
+                            <div class="flex gap-1 text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                            <p class="text-slate-600 italic text-sm leading-relaxed">
+                                "Our online presence wasn't matching the premium service we offer in person. The AIVONIX team revamped our entire presentation and set up a smart system to process and manage prospective enquiries instantly. The professionalism shines through every touchpoint."
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-100 pt-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs font-extrabold">MA</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-brand-dark">Michelle Adams</h5>
+                                <p class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Managing Partner, Adams Advisory Partners</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Contact Section -->
+        <section id="contact" class="py-20 lg:py-28 bg-white scroll-mt-20">
+            <div class="max-w-xl mx-auto px-6">
+                <div class="text-center space-y-4 mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Get Started</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">Request a Consultation</h2>
+                    <p class="text-base text-slate-600">Secure your tailored walkthrough and let's map out your systems upgrade together.</p>
+                </div>
+
+                <!-- Form handling via customized JS logic for high reliability -->
+                <form id="consultation-form" onsubmit="handleFormSubmission(event)" class="space-y-6 bg-slate-50 p-8 rounded-2xl border border-slate-200/60 shadow-lg relative">
+                    <div class="space-y-1.5">
+                        <label for="fullName" class="text-xs font-bold uppercase tracking-wider text-slate-500">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Johnathan Doe" 
+                            class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent text-sm transition-all" />
+                    </div>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="space-y-1.5">
+                            <label for="email" class="text-xs font-bold uppercase tracking-wider text-slate-500">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@yourdomain.com" 
+                                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent text-sm transition-all" />
+                        </div>
+                        <div class="space-y-1.5">
+                            <label for="phone" class="text-xs font-bold uppercase tracking-wider text-slate-500">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000" 
+                                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent text-sm transition-all" />
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="details" class="text-xs font-bold uppercase tracking-wider text-slate-500">Business Details</label>
+                        <textarea id="details" name="details" rows="4" required placeholder="Tell us briefly about your services and current workflow goals..." 
+                            class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent text-sm transition-all"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-dark hover:bg-brand-navy text-white font-semibold py-4 rounded-xl transition-all duration-200 shadow-md transform active:scale-[0.99] cursor-pointer">
+                        Get Free Consultation
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 9. Thank You Layout (Hidden on Initial Page Load) -->
+    <div id="thankyou-content" class="hidden min-h-[80vh] flex items-center justify-center py-16 px-6 fade-in bg-white">
+        <div class="max-w-2xl w-full text-center space-y-8 bg-slate-50 p-10 rounded-2xl border border-slate-200/60 shadow-xl">
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto border border-emerald-200 text-emerald-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+
+            <div class="space-y-3">
+                <h1 class="text-3xl font-extrabold text-brand-dark sm:text-4xl">
+                    Thank you, <span id="client-name" class="text-brand-accent">Valued Client</span>!
+                </h1>
+                <p class="text-slate-600 text-base leading-relaxed">
+                    We have successfully received your business overview and consultation request. Your details are securely filed with our senior architects.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200/60 text-left space-y-3">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-dark">What's Next?</p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    We’ll review your business and contact you shortly with the best way to help you grow. An executive from the AIVONIX system planning team will follow up via email or call to schedule our live workflow deep-dive.
+                </p>
+            </div>
+
+            <button onclick="resetToHome()" class="inline-flex bg-brand-dark hover:bg-brand-navy text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-sm cursor-pointer">
+                &larr; Return to Homepage
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-brand-dark text-slate-400 py-12 text-sm text-center border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 space-y-6">
+            <!-- Brand Logo Integration in Footer -->
+            <div class="flex justify-center" id="footer-logo-container">
+                <span class="text-xl font-bold tracking-tight text-white">
+                    AIVONIX<span class="text-brand-accent">.</span>
+                </span>
+            </div>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+                Setting the corporate standard for high-performance business architectures, lead management, and digital customer growth structures.
+            </p>
+            <p class="pt-4 text-slate-600 text-[11px]">&copy; 2026 AIVONIX. All corporate records are securely protected.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Operations JS Logic -->
+    <script>
+        // Toggle state logic for mobile navbar drawers
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const burger = document.getElementById('menu-icon-hamburger');
+            const close = document.getElementById('menu-icon-close');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                burger.classList.add('hidden');
+                close.classList.remove('hidden');
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const burger = document.getElementById('menu-icon-hamburger');
+            const close = document.getElementById('menu-icon-close');
+            
+            menu.classList.add('hidden');
+            burger.classList.remove('hidden');
+            close.classList.add('hidden');
+        }
+
+        // Single-page navigation controller ensuring routing unhides content before moving
+        function handleNavClick(event, targetHash) {
+            event.preventDefault();
+            closeMobileMenu();
+            resetToHome();
+
+            if (targetHash === '#' || targetHash === '') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            const targetEl = document.querySelector(targetHash);
+            if (targetEl) {
+                // Highly compatible and robust scrolling using native element APIs
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Smooth view transition routing simulated safely in a single-file construct
+        function async function handleFormSubmission(event) {
+  event.preventDefault();
+
+  var fullName = document.getElementById('fullName').value.trim();
+  var email    = document.getElementById('email').value.trim();
+  var phone    = document.getElementById('phone').value.trim();
+  var details  = document.getElementById('details').value.trim();
+
+  // Show first name on thank you page
+  const firstName = fullName ? fullName.split(' ')[0] : 'Valued Client';
+  const nameDisplay = document.getElementById('client-name');
+  if (nameDisplay) nameDisplay.textContent = firstName;
+
+  // Send data to AIVONIX backend
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbxDZEnOBcHNHNSGN_d3cc4gu7FhzHuFXSBEb_cSD4sRMtDH05L7pvGwi6WGLH5pWlm4Fg/exec", {
+      method:  "POST",
+      mode:    "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({
+        fullName:            fullName,
+        email:               email,
+        phone:               phone,
+        businessDescription: details
+      })
+    });
+  } catch (err) {
+    console.log('Submission error:', err);
+  }
+
+  // Show your existing thank you page
+  const mainContent     = document.getElementById('main-content-wrapper');
+  const thankyouContent = document.getElementById('thankyou-content');
+  mainContent.classList.add('hidden');
+  thankyouContent.classList.remove('hidden');
+  window.scrollTo({ top: 0, be
+
+        // Action routing helper allowing users to cleanly review home content again
+        function resetToHome() {
+            const mainContent = document.getElementById('main-content-wrapper');
+            const thankyouContent = document.getElementById('thankyou-content');
+            
+            if (mainContent.classList.contains('hidden')) {
+                const form = document.getElementById('consultation-form');
+                if (form) form.reset();
+
+                // Toggle view visibility states
+                thankyouContent.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
